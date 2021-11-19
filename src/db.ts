@@ -12,14 +12,14 @@ let idCounter = db.length + 1;
  * @returns the item added (with a newly created id)
  */
 export const addToDoItem = (data: inputToDoItem): toDoItemWithID => {
-  let today = new Date();
+  const today = new Date();
   const newEntry: toDoItemWithID = {
     id: idCounter++,
     title: data.title,
     description: data.description,
     creationDate: today.toISOString(),
     dueDate: data.dueDate,
-    completed: false
+    completed: false,
   };
   db.push(newEntry);
   return newEntry;
