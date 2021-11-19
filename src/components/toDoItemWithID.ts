@@ -1,4 +1,4 @@
-export interface toDoItem {
+export interface toDoItemWithID {
   id: number;
   title: string;
   description: string;

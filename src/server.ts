@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { getAllDbItems } from "./db";
+import { getAllDbItems, addToDoItem } from "./db";
+import { inputToDoItem } from "./components/inputToDoItem";
 // import dotenv from "dotenv";
 // import {
 //   addDummyDbItems,
@@ -38,13 +39,13 @@ app.get("/todos", (req, res) => {
 });
 
 // POST /items
-// app.post<{}, {}, DbItem>("/items", (req, res) => {
-//   // to be rigorous, ought to handle non-conforming request bodies
-//   // ... but omitting this as a simplification
-//   const postData = req.body;
-//   const createdSignature = addDbItem(postData);
-//   res.status(201).json(createdSignature);
-// });
+app.post<{}, {}, inputToDoItem>("/todos", (req, res) => {
+  // to be rigorous, ought to handle non-conforming request bodies
+  // ... but omitting this as a simplification
+  const postData = req.body;
+  const createdToDo = addToDoItem(postData);
+  res.status(201).json(createdToDo);
+});
 
 // // GET /items/:id
 // app.get<{ id: string }>("/items/:id", (req, res) => {
