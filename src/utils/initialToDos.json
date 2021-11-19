@@ -1,0 +1,35 @@
+{
+    "todos": [{
+        "id": 1,
+        "title": "Make a to-do app",
+        "description": "Make an app where you can create and edit to-dos, mark as completed etc.",
+        "creationDate": "2021-11-19T22:18:26.625Z",
+        "dueDate": "2021-11-21T22:18:26.625Z",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Completed to-do",
+        "description": "I've already done this to-do so I have marked it as completed",
+        "creationDate": "2021-11-12T22:18:26.625Z",
+        "dueDate": "2021-11-21T22:18:26.625Z",
+        "completed": true
+    },
+    {
+        "id": 3,
+        "title": "Overdue to-do",
+        "description": "The due date for this to-do was last year! This to-do is way overdue!",
+        "creationDate": "2020-11-19T22:18:26.625Z",
+        "dueDate": "2020-11-21T22:18:26.625Z",
+        "completed": false
+    },
+    {
+        "id": 4,
+        "title": "To-do with no desciption!",
+        "description": "",
+        "creationDate": "2021-11-18T22:18:26.625Z",
+        "dueDate": "2021-11-21T22:18:26.625Z",
+        "completed": false
+    }
+]
+}
