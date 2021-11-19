@@ -1,22 +1,29 @@
 import initialToDos from "./utils/initialToDos.json";
-import { toDoItem } from "./components/toDoItem";
+import { toDoItemWithID } from "./components/toDoItemWithID";
+import { inputToDoItem } from "./components/inputToDoItem";
 
-const db: toDoItem[] = [...initialToDos.todos]; //array starting with initial to-dos
+const db: toDoItemWithID[] = [...initialToDos.todos]; //array starting with initial to-dos
+let idCounter = db.length + 1;
 
-// /**
-//  * Adds in a single item to the database
-//  *
-//  * @param data - the item data to insert in
-//  * @returns the item added (with a newly created id)
-//  */
-// export const addDbItem = (data: DbItem): DbItemWithId => {
-//   const newEntry: DbItemWithId = {
-//     id: ++idCounter,
-//     ...data,
-//   };
-//   db.push(newEntry);
-//   return newEntry;
-// };
+/**
+ * Adds in a single item to the database
+ *
+ * @param data - the item data to insert in
+ * @returns the item added (with a newly created id)
+ */
+export const addToDoItem = (data: inputToDoItem): toDoItemWithID => {
+  let today = new Date();
+  const newEntry: toDoItemWithID = {
+    id: idCounter++,
+    title: data.title,
+    description: data.description,
+    creationDate: today.toISOString(),
+    dueDate: data.dueDate,
+    completed: false
+  };
+  db.push(newEntry);
+  return newEntry;
+};
 
 // /**
 //  * Deletes a database item with the given id
@@ -57,7 +64,7 @@ const db: toDoItem[] = [...initialToDos.todos]; //array starting with initial to
  * Find all database items
  * @returns all database items from the database
  */
-export const getAllDbItems = (): toDoItem[] => {
+export const getAllDbItems = (): toDoItemWithID[] => {
   return db;
 };
 
