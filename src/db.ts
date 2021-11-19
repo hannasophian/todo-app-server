@@ -1,12 +1,7 @@
-import initialToDos from "./utils/initialToDos.json"
-import { toDoItem } from "./components/toDoItem"
-
-
-
+import initialToDos from "./utils/initialToDos.json";
+import { toDoItem } from "./components/toDoItem";
 
 const db: toDoItem[] = [...initialToDos.todos]; //array starting with initial to-dos
-
-
 
 // /**
 //  * Adds in a single item to the database

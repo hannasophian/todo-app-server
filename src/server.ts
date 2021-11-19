@@ -12,7 +12,6 @@ import { getAllDbItems } from "./db";
 // } from "./db";
 import filePath from "./filePath";
 
-
 const app = express();
 
 /** Parses JSON data in a request automatically */
