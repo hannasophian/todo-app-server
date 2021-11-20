@@ -86,24 +86,24 @@ export const getToDoItemById = (id: number): toDoItemWithID | "not found" => {
   }
 };
 
-// /**
-//  * Applies a partial update to a database item for a given id
-//  *  based on the passed data
-//  *
-//  * @param id - the id of the database item to update
-//  * @param newData - the new data to overwrite
-//  * @returns the updated database item (if one is located),
-//  *  otherwise the string `"not found"`
-//  */
-// export const updateDbItemById = (
-//   id: number,
-//   newData: Partial<DbItem>
-// ): DbItemWithId | "not found" => {
-//   const idxOfEntry = findIndexOfDbItemById(id);
-//   // type guard against "not found"
-//   if (typeof idxOfEntry === "number") {
-//     return Object.assign(db[idxOfEntry], newData);
-//   } else {
-//     return "not found";
-//   }
-// };
+/**
+ * Applies a partial update to a database item for a given id
+ *  based on the passed data
+ *
+ * @param id - the id of the database item to update
+ * @param newData - the new data to overwrite
+ * @returns the updated database item (if one is located),
+ *  otherwise the string `"not found"`
+ */
+export const updateToDoItemById = (
+  id: number,
+  newData: Partial<toDoItemWithID>
+): toDoItemWithID | "not found" => {
+  const idxOfEntry = findIndexOfToDoItemById(id);
+  // type guard against "not found"
+  if (typeof idxOfEntry === "number") {
+    return Object.assign(db[idxOfEntry], newData);
+  } else {
+    return "not found";
+  }
+};
