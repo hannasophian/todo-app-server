@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { getAllDbItems, addToDoItem } from "./db";
+import { getAllDbItems, addToDoItem, deleteToDoItemById } from "./db";
 import { inputToDoItem } from "./components/inputToDoItem";
 // import dotenv from "dotenv";
 // import {
@@ -57,15 +57,15 @@ app.post<{}, {}, inputToDoItem>("/todos", (req, res) => {
 //   }
 // });
 
-// // DELETE /items/:id
-// app.delete<{ id: string }>("/items/:id", (req, res) => {
-//   const matchingSignature = getDbItemById(parseInt(req.params.id));
-//   if (matchingSignature === "not found") {
-//     res.status(404).json(matchingSignature);
-//   } else {
-//     res.status(200).json(matchingSignature);
-//   }
-// });
+// DELETE /items/:id
+app.delete<{ id: string }>("/todos/:id", (req, res) => {
+  const matchingSignature = deleteToDoItemById(parseInt(req.params.id));
+  if (matchingSignature === "not found") {
+    res.status(404).json(matchingSignature);
+  } else {
+    res.status(200).json(matchingSignature);
+  }
+});
 
 // // PATCH /items/:id
 // app.patch<{ id: string }, {}, Partial<DbItem>>("/items/:id", (req, res) => {
