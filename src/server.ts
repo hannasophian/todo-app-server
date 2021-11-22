@@ -5,6 +5,7 @@ import {
   addToDoItem,
   deleteToDoItemById,
   updateToDoItemById,
+  getToDoItemById,
 } from "./db";
 import { inputToDoItem } from "./components/inputToDoItem";
 // import dotenv from "dotenv";
@@ -43,6 +44,11 @@ app.get("/todos", (req, res) => {
   const allToDos = getAllDbItems();
   res.status(200).json(allToDos);
 });
+
+app.get("/todos/:id", (req, res) => {
+  const singleToDo = getToDoItemById(parseInt(req.params.id));
+  res.status(200).json(singleToDo)
+})
 
 // POST /items
 app.post<{}, {}, inputToDoItem>("/todos", (req, res) => {
