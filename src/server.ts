@@ -47,8 +47,8 @@ app.get("/todos", (req, res) => {
 
 app.get("/todos/:id", (req, res) => {
   const singleToDo = getToDoItemById(parseInt(req.params.id));
-  res.status(200).json(singleToDo)
-})
+  res.status(200).json(singleToDo);
+});
 
 // POST /items
 app.post<{}, {}, inputToDoItem>("/todos", (req, res) => {
